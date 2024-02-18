@@ -1,0 +1,36 @@
+.header {
+  background-color: darkslategrey;
+  color: whitesmoke;
+  padding: 5px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  background-color: bisque;
+}
+.second-grid-container {
+  border: 2px solid whitesmoke;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.movie-name {
+  display: inline;
+  color: black;
+  padding-top: 10px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+.footer {
+  background-color: black;
+  color: white;
+}
