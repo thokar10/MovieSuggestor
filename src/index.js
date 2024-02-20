@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import About from "./About";
+
+import MovieDetail from "./Components/MovieDetail";
+import SearchPage from "./Components/SearchPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,9 +19,19 @@ const router = createBrowserRouter([
       </>
     ),
   },
+
+  // {
+  //   path: "/detail",
+  //   element: <DetailPage />,
+  // },
+
   {
-    path: "/about",
-    element: <About />,
+    path: "/movie/:movie_id",
+    element: <MovieDetail />,
+  },
+  {
+    path: "/movies?search=:movie_name",
+    element: <SearchPage />,
   },
 ]);
 

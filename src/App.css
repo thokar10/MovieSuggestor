@@ -34,3 +34,39 @@
   background-color: black;
   color: white;
 }
+.second-grid-container button {
+  background-color: rgb(62, 54, 54);
+  color: whitesmoke;
+  height: 46px;
+  padding: 5px;
+}
+.second-grid-container button:hover {
+  cursor: pointer;
+  color: red;
+}
+.search-button {
+  display: flex;
+  align-items: center;
+}
+.header-sub {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.search-icon {
+  font-size: 20px;
+}
+.search-icon:hover {
+  cursor: pointer;
+  color: red;
+}
+body {
+  background-color: bisque;
+}

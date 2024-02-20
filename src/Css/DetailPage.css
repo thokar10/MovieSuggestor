@@ -1,0 +1,9 @@
+.goBack {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.arrow:hover {
+  cursor: pointer;
+  color: red;
+}

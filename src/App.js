@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import "./App.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+// import {  Link } from "react-router-dom";
+
 function App() {
+  const inputValue = useRef();
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [Error, setError] = useState(false);
   const [isloading, setIsLoading] = useState(false);
 
-  const goto = () => {
-    navigate("/about");
+  const gotoSearchPage = (e) => {
+    e.preventDefault();
+    navigate(`/movies?search=${inputValue.current.value}`);
   };
 
   useEffect(() => {
@@ -53,7 +58,16 @@ function App() {
       )}
 
       <div className="header">
-        <h1 style={{ textAlign: "center" }}>MOVIES</h1>
+        <div className="header-sub">
+          <h1>Movies</h1>
+          <div className="search">
+            {" "}
+            <form onSubmit={gotoSearchPage}>
+              <input type="text" ref={inputValue} />
+            </form>
+            <FaSearch className="search-icon" onClick={gotoSearchPage} />
+          </div>
+        </div>
       </div>
       <div className="gridContainer">
         {movies.map((element) => {
@@ -64,19 +78,20 @@ function App() {
                   <img className="movie-image" src={element.image} alt="" />
                 </div>
                 <div className="movie-name">{element.name}</div>
+                <Link to={`/movie/${element.id}`}>view details</Link>
               </div>
             </>
           );
         })}
       </div>
 
-      <div className="footer">
-        <Link to={"/about"}>About this page</Link>
-      </div>
-      <div className="footer">
-        Programmatic
-        <div onClick={goto}>goto to about page</div>
-      </div>
+      {/* <div className="footer">
+          <Link to={"/about"}>About this page</Link>
+        </div>
+        <div className="footer">
+          Programmatic
+          <div onClick={goto}>goto to about page</div>
+        </div> */}
     </>
   );
 }
