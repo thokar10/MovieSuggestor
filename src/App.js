@@ -2,20 +2,34 @@ import { useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./App.css";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // import {  Link } from "react-router-dom";
 
 function App() {
   const inputValue = useRef();
-  const navigate = useNavigate();
+
   const [movies, setMovies] = useState([]);
   const [Error, setError] = useState(false);
+
   const [isloading, setIsLoading] = useState(false);
 
-  const gotoSearchPage = (e) => {
+  const gotoSearchPage = async (e) => {
     e.preventDefault();
-    navigate(`/movies?search=${inputValue.current.value}`);
+    console.log(inputValue.current.value);
+
+    try {
+      const response = await axios.get(
+        `https://api.dynoacademy.com/test-api/v1/movies?search=${inputValue.current.value}`
+      );
+
+      console.log(response.data.moviesData);
+      setIsLoading(false);
+
+      setMovies(response.data.moviesData);
+    } catch (e) {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -63,12 +77,13 @@ function App() {
           <div className="search">
             {" "}
             <form onSubmit={gotoSearchPage}>
-              <input type="text" ref={inputValue} />
+              <input type="text" ref={inputValue} onChange={gotoSearchPage} />
             </form>
             <FaSearch className="search-icon" onClick={gotoSearchPage} />
           </div>
         </div>
       </div>
+
       <div className="gridContainer">
         {movies.map((element) => {
           return (

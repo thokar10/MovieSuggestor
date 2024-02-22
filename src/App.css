@@ -10,10 +10,8 @@
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  background-color: bisque;
 }
 .second-grid-container {
-  border: 2px solid whitesmoke;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -68,5 +66,5 @@
   color: red;
 }
 body {
-  background-color: bisque;
+  background-color: white;
 }

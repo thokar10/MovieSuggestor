@@ -5,7 +5,6 @@ import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import MovieDetail from "./Components/MovieDetail";
-import SearchPage from "./Components/SearchPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
   {
     path: "/movie/:movie_id",
     element: <MovieDetail />,
-  },
-  {
-    path: "/movies?search=:movie_name",
-    element: <SearchPage />,
   },
 ]);
 
