@@ -43,7 +43,7 @@ function App() {
         "https://api.dynoacademy.com/test-api/v1/movies"
       );
 
-      console.log(response.data.moviesData);
+      console.log(response.data);
       setIsLoading(false);
 
       setMovies(response.data.moviesData);
